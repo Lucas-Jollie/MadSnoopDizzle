@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Mad Snoop Dizzle</string>
+    <string name="askName">How is you called?</string>
+    <string name="get_transformed_name">Next</string>
+    <string name="user_age">Was yo\' age</string>
+    <string name="askNameGStyle">Wa\'s yo\' name?</string>
+    <string name="storyTime">Story time</string>
+    <string name="askNumber">Guess a number</string>
+    <string name="nameHero">A hero</string>
+    <string name="favouriteFood">Some food</string>
+    <string name="anyCountry">Pick a country</string>
+    <string name="favouriteAnimal">Was\' you fav\' animal?</string>
+    <string name="askAdjective">Adjective</string>
+</resources>

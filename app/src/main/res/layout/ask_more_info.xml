@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/favAnimal"
+        android:layout_gravity="center_vertical"
+        android:hint="@string/favouriteAnimal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:freezesText="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/anyCount"
+        android:hint="@string/anyCountry"
+        android:layout_above="@+id/askNumb"
+        android:layout_centerHorizontal="true"
+        android:freezesText="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/favouriteFood"
+        android:id="@+id/favFood"
+        android:freezesText="true"
+        android:layout_above="@+id/favAnimal"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameHero"
+        android:freezesText="true"
+        android:hint="@string/nameHero"
+        android:layout_below="@+id/favAnimal"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/askNumber"
+        android:ems="10"
+        android:id="@+id/askNumb"
+        android:freezesText="true"
+        android:layout_above="@+id/favAnimal"
+        android:layout_alignLeft="@+id/favAnimal"
+        android:layout_alignStart="@+id/favAnimal"
+        android:layout_marginBottom="60dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/storyTime"
+        android:id="@+id/button"
+        android:freezesText="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp"
+        android:onClick="createStory"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/someAdjective"
+        android:freezesText="true"
+        android:layout_below="@+id/nameHero"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/askAdjective"/>
+
+
+</RelativeLayout>

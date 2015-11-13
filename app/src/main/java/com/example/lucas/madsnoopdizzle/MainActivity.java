@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    // initiates
     private Spinner genderChoiceSpinner;
     private String itemSelectedInSpinner;
     private TextView userName, userAge;
@@ -23,19 +24,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // create spinner elements
         addItemToGenderChoiceSpinner();
-
         addListenerToGenderChoiceSpinner();
 
+        // get age and name
         userName = (TextView) findViewById(R.id.editText);
-
         userAge = (TextView) findViewById(R.id.ageInput);
+
 
 
 
 
     }
 
+
+    // adds items to spinner
     public void addItemToGenderChoiceSpinner(){
         genderChoiceSpinner = (Spinner) findViewById(R.id.spinner);
 
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         genderChoiceSpinner.setAdapter(genderChoiceSpinnerAdapter);
     }
 
+    // effect of selecting element in spinner
     public void addListenerToGenderChoiceSpinner(){
 
         genderChoiceSpinner = (Spinner) findViewById(R.id.spinner);
@@ -74,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            // force chosing
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 Toast.makeText(getApplicationContext(), "Please select a gender!", Toast.LENGTH_SHORT).show();
@@ -81,19 +87,44 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // when going to next screen
     public void whenClicked(View view) {
 
+        // passing info to new screen
         Intent getInfoScreenIntent= new Intent(this, AskInfo.class);
 
-
-
+        // convert age and name to strings
         String passName = userName.getText().toString();
         String passAge = userAge.getText().toString();
 
+        // Snoopify the name
+        Integer length = passName.length();
+        Character last = passName.charAt(length - 1);
+        char[] consonants = {'a', 'e', 'i', 'o', 'u'};
+        boolean contains = false;
+
+        for (char c  : consonants){
+            if (c == last){
+                contains = true;
+                break;
+            }
+        }
+        if (contains) {
+            passName = passName + "zzle";
+        }
+        else if (last == 'y'){
+            passName = passName + "azzle";
+        }
+        else{
+            passName = passName + "azzizzle";
+        }
+
+        // pass to next screen
         getInfoScreenIntent.putExtra("passName", passName);
         getInfoScreenIntent.putExtra("passAge", passAge);
         getInfoScreenIntent.putExtra("passGender", itemSelectedInSpinner);
 
+        // initiate next screen
         startActivity(getInfoScreenIntent);
     }
 }

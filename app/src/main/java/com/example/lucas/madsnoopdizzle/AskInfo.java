@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class AskInfo extends Activity {
 
+    // iniates
     private TextView favAnimal, country, favFood, hero, number, adjective;
     private String passName, passAge, passGender;
 
@@ -15,8 +16,10 @@ public class AskInfo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // set layout
         setContentView(R.layout.ask_more_info);
 
+        // get info from previous screen
         Intent activityThatCalled = getIntent();
 
         passName = activityThatCalled.getExtras().getString("passName");
@@ -24,6 +27,7 @@ public class AskInfo extends Activity {
         passGender = activityThatCalled.getExtras().getString("passGender");
 
 
+        // get various words
         favAnimal = (TextView) findViewById(R.id.favAnimal);
         country = (TextView) findViewById(R.id.anyCount);
         favFood = (TextView) findViewById(R.id.favFood);
@@ -37,8 +41,10 @@ public class AskInfo extends Activity {
 
     public void createStory(View view) {
 
+        // initiate passing to next screen
         Intent createStoryFromInput = new Intent(this, DisplayStory.class);
 
+        // convert everything to strings
         String passAnimal = favAnimal.getText().toString();
         String passCountry = country.getText().toString();
         String passFood = favFood.getText().toString();
@@ -46,7 +52,7 @@ public class AskInfo extends Activity {
         String passNumb = number.getText().toString();
         String passAdje = adjective.getText().toString();
 
-
+        // pass extra's
         createStoryFromInput.putExtra("userGender", passGender);
         createStoryFromInput.putExtra("favoAnimal", passAnimal);
         createStoryFromInput.putExtra("favoCountry", passCountry);
@@ -57,6 +63,7 @@ public class AskInfo extends Activity {
         createStoryFromInput.putExtra("userName", passName);
         createStoryFromInput.putExtra("userAge", passAge);
 
+        // start new screen
         startActivity(createStoryFromInput);
     }
 }
